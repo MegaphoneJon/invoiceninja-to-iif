@@ -121,6 +121,9 @@ function determineVendorAndAccount(string $text): array {
     return ['Golden Lotus', 'Meals and Entertainment', NULL];
   }
   // Frequently recurring expenses.
+  if (str_starts_with($text, 'GUSTO/FEE')) {
+    return ['Hartford Insurance', 'Payroll Service Fee', NULL];
+  }
   if (str_starts_with($text, 'THE HARTFORD')) {
     return ['Hartford Insurance', 'Insurance Expense', NULL];
   }
@@ -160,6 +163,6 @@ function determineVendorAndAccount(string $text): array {
   if (str_contains($text, 'MZLA THUNDERBIRD')) {
     return ['Mozilla', 'Charitable Contributions', NULL];
   }
-  
+
   return ['Unknown', 'Unknown', NULL];
 }
